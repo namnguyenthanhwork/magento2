@@ -95,53 +95,6 @@ Catalog Search index has been rebuilt successfully in <time>
 Reindexing all indexers can take a long time for stores with large numbers of products, customers, categories, and promotional rules.
 {% endhint %}
 
-### Reindexing in parallel mode <a href="#reindexing-in-parallel-mode" id="reindexing-in-parallel-mode"></a>
-
-Indexers are scoped and multi-threaded to support reindexing in parallel mode. It parallelizes by the indexer’s dimension and executes across multiple threads, reducing processing time.
-
-In this context, `dimension` is the scope of the reindexing, for instance a `website` or just a specific `customer_group`.
-
-Index parallelization affects scoped indexers only, which means Commerce splits the data into multiple tables using the indexer as its scope instead of keeping all data in one table.
-
-You can run the following indexes in parallel mode:
-
-* `Catalog Search Fulltext` can be paralleled by store views.
-* `Category Product` can be paralleled by store views.
-* `Catalog Price` can be paralleled by website and customer groups.
-* `Catalog Permissions` can be paralleled by customer groups.
-
-To use parallelization, set one of the available dimensions modes for the product price indexer:
-
-* `none` (default)
-* `website`
-* `customer_group`
-* `website_and_customer_group`
-
-For example, to set the mode per website:
-
-```bash
-bin/magento indexer:set-dimensions-mode catalog_product_price website
-```
-
-To use parallelization for Catalog permissions, set one of the available dimensions modes for the Catalog Permissions indexer:
-
-* `none` (default)
-* `customer_group`
-
-Or to check the current mode:
-
-```bash
-bin/magento indexer:show-dimensions-mode
-```
-
-To reindex in parallel mode, run the reindex command using the environment variable `MAGE_INDEXER_THREADS_COUNT`, or add an environment variable to the `env.php` file. This variable sets the number of threads for the reindex processing.
-
-For example, the following command runs the `Catalog Search Fulltext` indexer across three threads:
-
-```bash
-MAGE_INDEXER_THREADS_COUNT=3 php -f bin/magento indexer:reindex catalogsearch_fulltext
-```
-
 ### Reset indexer <a href="#reset-indexer" id="reset-indexer"></a>
 
 Use this command to invalidate the status of all indexers or specific indexers.
@@ -177,8 +130,6 @@ Use this command to set the following indexer options:
 * **Update on save (`realtime`)**: Indexed data is updated when a change is made in the Admin. (For example, the category products index is reindex after products are added to a category in the Admin.) This is the default.
 * **Update by schedule (`schedule`)**: Data is indexed according to the schedule set by your cron job.
 
-[Learn more about indexing](https://developer.adobe.com/commerce/php/development/components/indexing/).
-
 #### Display the current configuration <a href="#display-the-current-configuration" id="display-the-current-configuration"></a>
 
 To view the current indexer configuration:
@@ -204,8 +155,6 @@ Stock:                                             Update on Save
 Product Price:                                     Update on Save
 Catalog Search:                                    Update on Save
 ```
-
-### Configure indexers <a href="#configure-indexers-1" id="configure-indexers-1"></a>
 
 Before switching indexer modes, we recommend putting your website to [maintenance](https://experienceleague.adobe.com/docs/commerce-operations/installation-guide/tutorials/maintenance-mode.html?lang=en) mode and [disable cron jobs](https://experienceleague.adobe.com/docs/commerce-cloud-service/user-guide/configure/app/properties/crons-property.html?lang=en#disable-cron-jobs). This ensures you do not suffer database locks.
 
