@@ -1,7 +1,7 @@
 ---
 cover: .gitbook/assets/magento-2-indexers.png
 coverY: -21.391402714932127
-layout: landing
+layout: editorial
 ---
 
 # Indexer
