@@ -1,8 +1,10 @@
 ---
-layout: editorial
+description: Command line index in magento2
+cover: ../.gitbook/assets/bg2.png
+coverY: 64.47963800904976
 ---
 
-# Manage the indexers
+# CLI
 
 ### View a list of all indexers
 
