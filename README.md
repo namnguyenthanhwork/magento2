@@ -30,7 +30,7 @@ Reindexing can be performed in two modes:
 
 To set these options:
 
-1. Log in to the **Admin.**
+1. Login to the **Admin.**
 2. Click **System > Tools** **> Index Management**.
 3. Select the checkbox next to each type of indexer to change.
 4. From the **Actions** list, click the indexing mode.
