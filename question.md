@@ -11,12 +11,12 @@ coverY: 71.35746606334841
 
 ### **Flat Index**
 
-There are 2 such indexes. One for categories and one for products.\
-By default the category and product entities (and customers and customer addresses but they are not important in this situation) are [EAV](http://en.wikipedia.org/wiki/Entity%E2%80%93attribute%E2%80%93value\_model) entities. This is very nice for extensibility. But it's a performance killer because in order to get all values for all the attributes you need a lot of joins or multiple queries.\
+There are 2 such indexes. One for categories and one for products.
+
+By default the category and product entities (and customers and customer addresses but they are not important in this situation) are [EAV](http://en.wikipedia.org/wiki/Entity%E2%80%93attribute%E2%80%93value\_model) entities. This is very nice for extensibility. But it's a performance killer because in order to get all values for all the attributes you need a lot of joins or multiple queries.
+
 Here is where the flat indexer comes into play.\
-It transforms the EAV structure into a flat structure. I mean it creates a table (one for each store view in Magento) that has one column corresponding to an attribute. This makes selects faster. For categories all attributes are converted to table columns. For products only the ones you mark as 'Used in product listing' because you can sell all types of products with different attributes and creating one table with a gazillion columns may not be possible.\
-Also, some products may be disabled or may not belong to a certain website and there is no need to include them in the entries to search. They are excluded by the indexer.\
-The generated flat tables are used for reading data in the fronend. The backend still uses the EAV structure.
+It transforms the EAV structure into a flat structure. I mean it creates a table (one for each store view in Magento) that has one column corresponding to an attribute. This makes selects faster. For categories all attributes are converted to table columns. For products only the ones you mark as 'Used in product listing' because you can sell all types of products with different attributes and creating one table with a gazillion columns may not be possible.
 
 ### **Catalog Search Index**
 
@@ -24,7 +24,8 @@ You can search for products by many attribute values. Some of them may not be in
 
 ### **Product Prices**.
 
-The price of a product can be affected by many variables. For example, customer group, website, catalog discount rules.\
+The price of a product can be affected by many variables. For example, customer group, website, catalog discount rules.
+
 Same as above, getting the products with their prices will mean a lot of joins or multiple selects. IN addition bundle products have a strange pricing system. This indexer aggregates the data in some tables (`catalog_product_index_price_*`) and makes the selects (sorting and filtering) much easier.
 
 ### **Catalog url Rewrites**

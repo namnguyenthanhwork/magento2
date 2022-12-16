@@ -1,7 +1,5 @@
 ---
 description: Command line index in magento2
-cover: ../.gitbook/assets/bg2.png
-coverY: 64.47963800904976
 ---
 
 # CLI
@@ -132,7 +130,7 @@ Use this command to set the following indexer options:
 * **Update on save (`realtime`)**: Indexed data is updated when a change is made in the Admin. (For example, the category products index is reindex after products are added to a category in the Admin.) This is the default.
 * **Update by schedule (`schedule`)**: Data is indexed according to the schedule set by your cron job.
 
-#### Display the current configuration <a href="#display-the-current-configuration" id="display-the-current-configuration"></a>
+### Display the current configuration <a href="#display-the-current-configuration" id="display-the-current-configuration"></a>
 
 To view the current indexer configuration:
 
