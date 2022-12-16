@@ -17,8 +17,6 @@ Indexing is how Adobe Commerce and Magento Open Source transform data such as pr
 * **Full reindex**: rebuilding all the indexing-related database tables. Full reindexing can be caused by a variety of things, including creating a new web store or new customer group. You can optionally fully reindex at any time using the [command line](indexer/cli.md).
 * **Partial reindex**: rebuilding the database tables only for the things that changed (like changing a single product attribute or price)
 
-<figure><img src=".gitbook/assets/image.png" alt=""><figcaption><p>Source: <a href="https://developer.adobe.com/commerce/php/development/components/indexing/">https://developer.adobe.com/commerce/php/development/components/indexing/</a></p></figcaption></figure>
-
 ### Indexing modes <a href="#indexing-modes" id="indexing-modes"></a>
 
 Reindexing can be performed in two modes:
