@@ -6,8 +6,15 @@ description: Manage schedule in magento2
 
 Download and Install Phar File
 
-* open wsl: `cd ~/Documents/magento2`
-* `docker compose run deploy`
+open wsl
+
+```
+cd ~/Documents/magento2
+```
+
+```
+docker compose run deploy
+```
 
 Download the latest stable N98-Magerun phar-file from the file-server:
 

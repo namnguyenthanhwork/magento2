@@ -23,12 +23,16 @@ Vd: Khi người dùng truy cập một trang web mới, trình duyệt của h�
 
 * Tìm dữ liệu trong cache, nếu tìm thấy => trả dữ liệu về
 * Nếu không tìm thấy trong cache, đọc từ “database” => ghi data vào cache => trả data về
-* Ưu điểm:
-  * Không load toàn bộ data lên cache
-  * Trong trường hợp cache nhiều node, khi một node bị sự cố, hệ thống vẫn không bị hư hại.
-* Nhược điểm:
-  * Trong trường hợp cache miss, delay cao do cần đến 3 network round trip.
-  * Nếu có thay đổi trong database và cache chưa expire => trả về data cũ cho ứng dụng.
+
+**Ưu điểm:**
+
+* Không load toàn bộ data lên cache
+* Trong trường hợp cache nhiều node, khi một node bị sự cố, hệ thống vẫn không bị hư hại.
+
+**Nhược điểm:**
+
+* Trong trường hợp cache miss, delay cao do cần đến 3 network round trip.
+* Nếu có thay đổi trong database và cache chưa expire => trả về data cũ cho ứng dụng.
 
 ### 3.2. Read aside
 
@@ -54,21 +58,28 @@ Write back lưu rất nhiều vào cache, lâu lâu mới update vào database 1
 
 * Thêm/cập nhật database cũng sẽ cập nhật trong cache.
 * Hai tác vụ này nên xảy ra trong cùng một transaction.
-* Ưu điểm:
-  * Đảm bảo dữ liệu trong cache luôn là mới nhất.
-  * Thích hợp cho những hệ thống cần nhu cầu đọc lớn và không chấp nhận dữ liệu bị cũ.
-* Nhược điểm:
-  * Mỗi thao tác write sẽ gồm 2 thao tác: write database và write cache.
-  * Để đảm bảo tính đồng bộ, nếu write cache hay database thất bại => thao tác write thất bại.
-  * Phần lớn data trong cache không được đọc đến. Giải quyết bằng cách thêm expire.
+
+**Ưu điểm:**
+
+* Đảm bảo dữ liệu trong cache luôn là mới nhất.
+* Thích hợp cho những hệ thống cần nhu cầu đọc lớn và không chấp nhận dữ liệu bị cũ.
+
+**Nhược điểm:**
+
+* Mỗi thao tác write sẽ gồm 2 thao tác: write database và write cache.
+* Để đảm bảo tính đồng bộ, nếu write cache hay database thất bại => thao tác write thất bại.
+* Phần lớn data trong cache không được đọc đến. Giải quyết bằng cách thêm expire.
 
 ### 3.5. Write behind caching
 
 Data được ghi trực tiếp vào cache, sau đó data mới được ghi vào database bất đồng bộ.
 
-* Ưu điểm:
-  * Write/read trên cache => tăng performance.
-  * Tách biệt ứng dụng khỏi “database failure”.
-* Nhược điểm:
-  * Bất đồng bộ giữa cache và database.
-  * Write cache và database không được xử lý trong một transaction nên phải có cơ chế rollback nếu dữ liệu không thể write vào database.ng clean cache đó.
+**Ưu điểm:**
+
+* Write/read trên cache => tăng performance.
+* Tách biệt ứng dụng khỏi “database failure”.
+
+**Nhược điểm:**
+
+* Bất đồng bộ giữa cache và database.
+* Write cache và database không được xử lý trong một transaction nên phải có cơ chế rollback nếu dữ liệu không thể write vào database.ng clean cache đó.

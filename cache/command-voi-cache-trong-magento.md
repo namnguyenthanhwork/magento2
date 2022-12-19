@@ -36,7 +36,6 @@ Ex:
 
 ```
 bin/magento cache:disable db_ddl full_page
-
 ```
 
 Để disable toàn bộ cache, bỏ qua `[type]`
