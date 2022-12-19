@@ -44,10 +44,9 @@ Write-around Cache có khả năng ghi lại các hoạt động trực tiếp v
 
 ### 3.4. Write back
 
-<figure><img src="https://lh6.googleusercontent.com/DQN71l0QUU7u41f7ARM6KWz0EHYY3xrbndZHqe9k2xOhk8c4pccqV3pugh8Anlu5J4fFVGphJ_pAVoTiB_WxOTQX7HOa91oPBGNdxF6p8qpf38TpURTt3GzARiGthw6IRTMDQjRqLUbgXWFXGCdTQYZuoPC5deX9NCF7n69nvxLYTyChi_bXYcpfDl00rg" alt=""><figcaption></figcaption></figure>
+<figure><img src="https://lh6.googleusercontent.com/DQN71l0QUU7u41f7ARM6KWz0EHYY3xrbndZHqe9k2xOhk8c4pccqV3pugh8Anlu5J4fFVGphJ_pAVoTiB_WxOTQX7HOa91oPBGNdxF6p8qpf38TpURTt3GzARiGthw6IRTMDQjRqLUbgXWFXGCdTQYZuoPC5deX9NCF7n69nvxLYTyChi_bXYcpfDl00rg" alt=""><figcaption><p>Write back</p></figcaption></figure>
 
-Write back lưu rất nhiều vào cache, lâu lâu mới update vào database 1 lần.\
-
+Write back lưu rất nhiều vào cache, lâu lâu mới update vào database 1 lần.
 
 ### 3.4. Write through
 
