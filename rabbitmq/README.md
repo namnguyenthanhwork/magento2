@@ -4,8 +4,6 @@ description: Giới thiệu RabbitMQ
 
 # RabbitMQ
 
-> _Trước đây, Magento đã sử dụng bộ điều hợp MySQL để nhắn tin và các công việc định kỳ để đảm bảo việc gửi tin nhắn. Điều này không đáng tin cậy và có thể mở rộng. Để chống lại điều này, bạn có thể tích hợp RabbitMQ, bổ sung khả năng nhắn tin không đồng bộ cho Magento, đồng thời cũng có thể mở rộng và đáng tin cậy. Vậy RabbitMQ là gì?_
-
 ## I. RabbitMQ là gì?
 
 <figure><img src="../.gitbook/assets/image (14).png" alt=""><figcaption><p>RabbitMQ là gì?</p></figcaption></figure>
